@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block primary %}
+
+<h1>{{student}}</h1>
+<p>Address: {{student.address}}</p>
+<p>Age: {{student.age}}</p>
+<p>Registraion Number: {{student.reg_number}}</p><br/>
+<h4><p>Marks</p></h4>
+<p>Physics: {{student.physics}}</p>
+<p>Chemistry: {{student.chemistry}}</p>
+<p>Maths: {{student.maths}}</p>
+
+<form action="/studentapp/{{student.id}}/edit" method="get">
+	{% csrf_token %}
+    <input type="submit" value="Edit" 
+         name="Submit" id="frm1_submit" />
+</form>
+
+<form action="/studentapp/{{student.id}}/delete" method="get">
+	{% csrf_token %}
+    <input type="submit" value="Delete" 
+         name="Submit" id="frm2_submit" />
+</form>
+{% endblock %}

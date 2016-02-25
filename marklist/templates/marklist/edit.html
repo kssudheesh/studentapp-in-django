@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block primary %}
+
+<h1>{{student}}</h1>
+<form action="/studentapp/{{student.id}}/edit" method="post">
+    {% csrf_token %}
+    <label for="name"> Student Name:</label>
+    <input type="textbox" name="name" id="name" value={{student.name}} /><br/><br/>
+    <label for="number"> Registration Number:</label>
+    <input type="number" name="number" id="number" value={{student.reg_number}} /><br/><br/>
+    <label for="age"> Student's Age:</label>
+    <input type="number" name="age" id="age" value={{student.age}} /><br/><br/>
+    <label for="address"> Address:</label>
+    <textarea name="address" rows="8" cols="50" placeholder={{student.address}} ></textarea><br/><br/>
+    <label for=""> Marks</label>
+    <label for="physics"> Physics:</label>
+    <input type="number" name="physics" id="physics" value={{student.physics}} /><br/><br/>
+    <label for="chemistry"> Chemistry:</label>
+    <input type="number" name="chemistry" id="chemistry" value={{student.chemistry}} /><br/><br/>
+    <label for="maths"> Maths:</label>
+    <input type="number" name="maths" id="maths" value={{student.maths}} /><br/><br/>
+    <input type="submit" value="Update"/>
+
+{% endblock %}

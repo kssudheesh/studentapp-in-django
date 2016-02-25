@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block primary %}
+
+<h1>New Student</h1>
+<form action="/studentapp/new/" method="post">
+    {% csrf_token %}
+    <label for="name"> Student Name:</label>
+    <input type="textbox" name="name" id="name" placeholder="Enter a name" /><br/><br/>
+    <label for="number"> Registration Number:</label>
+    <input type="number" name="number" id="number" placeholder="Enter registration number" /><br/><br/>
+    <label for="age"> Student's Age:</label>
+    <input type="number" name="age" id="age" placeholder="Enter age" /><br/><br/>
+    <label for="address"> Address:</label>
+    <textarea name="address" rows="8" cols="50"></textarea><br/><br/>
+    <h3> Marks</h3><br/>
+    <label for="physics"> Physics:</label>
+    <input type="number" name="physics" id="physics" /><br/><br/>
+    <label for="chemistry"> Chemistry:</label>
+    <input type="number" name="chemistry" id="chemistry" /><br/><br/>
+    <label for="maths"> Maths:</label>
+    <input type="number" name="maths" id="maths" /><br/><br/>
+    <input type="submit" value="Create"/>
+
+{% endblock %}

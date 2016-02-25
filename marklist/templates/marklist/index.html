@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block primary %}
+
+{% if user.is_authenticated %}
+<h1>Hello {{ user.username }}!</h1>
+{% else %}
+<h1>Welcome guest</h1>
+{% endif %}
+
+
+{% if students %}
+    <ul>
+        {% for student in students%}
+        	<li><a href = "/studentapp/{{student.id}}/">{{student.name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No Student details are available</p>
+{% endif %}
+
+<form action="/studentapp/new" method="get">
+	{% csrf_token %}
+    <input type="submit" value="Add new student details" 
+         name="Submit" id="frm1_submit" />
+</form>
+
+{% endblock %}
